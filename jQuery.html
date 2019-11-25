@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div class="helloDiv">
+			<h1>Hello Teju</h1>
+		</div>
+		<div class="getTesting" style="color: yellow">
+			<button type="button" class="getButton">Test Ajax Get</button>
+		</div>
+		<script>
+			    //load method
+				$(".helloDiv").load("https://api.github.com/users/tejaswinik28",function(responseText,statusText,xhttp){
+					if(statusText === "success"){
+						alert("Hi you got it using load method");
+					}
+					else{
+						alert("No no no");
+					}
+					console.log(JSON.parse(responseText));
+				});
+
+				//get method
+				$("button").click(function(){
+
+					$.get("https://api.github.com/users/tejaswinik28",function(responseText,statusText){
+					if(statusText === "success"){
+						alert("Hi you got it using get method");
+					}
+					else{
+						alert("No no no");
+					}
+					alert(responseText.login);
+				})
+
+
+				});
+				
+
+			
+		</script>
+	</body>
+</html>
