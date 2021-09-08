@@ -1,4 +1,4 @@
-// we monkey-patch the slice method with our implementation
+
 Array.prototype.slice = function(start, end) {
     // we set the array 'this' to data.
     const data = this
