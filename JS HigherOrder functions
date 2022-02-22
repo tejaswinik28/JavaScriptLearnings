@@ -1,0 +1,62 @@
+//Reduce
+
+const array = [1,2,3,4,5,6];
+const sum = function(acc,curr) { return acc = acc+curr};
+
+Array.prototype.reduce1 = function(reducer,initailValue){
+    if(this.length === 0){
+        return initailValue;
+    }
+    else{
+        let acc = initailValue;
+        for(var i = 0; i < this.length; i++){
+            let curr = array[i];
+            acc = reducer(acc , curr);
+        }
+        return acc;
+    }
+}
+
+//Filter
+const arrayFil = [20,15,25,24,88,96,45,34];
+
+function odd(x){
+  if(x % 2 !== 0){
+      return x;
+  }
+}
+
+Array.prototype.filter1 = function (logic){
+    let resultArray = [];
+
+    for(var i = 0; i < this.length ; i++){
+        if(logic(this[i])){
+            resultArray.push(this[i]);
+        }
+     
+    }
+    return resultArray;
+}
+
+console.log(arrayFil.filter1(odd));
+
+
+
+//Map
+
+const array = [2,3,4,5];
+
+function square(x){
+    return x*x;
+}
+
+ Array.prototype.map1 = function (param) {
+     let resultArray = [];
+    for(var i=0;i<this.length;i++){
+        resultArray.push(param(this[i]));
+    }
+    return resultArray;
+}
+
+
+let res = array.map1(square);
