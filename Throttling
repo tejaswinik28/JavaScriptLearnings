@@ -1,0 +1,34 @@
+<h1>Hello</h1>
+
+<button id='clickMe'>Click ME </button>
+
+<script>
+console.log("Hi");
+
+const expensive = function(...args){
+  console.log("Expensive Button Clicked !!!!!!");
+}
+
+const throttle = function(func,delay){
+    let flag = true;
+    return function(...args){
+        let context = this;
+       console.log("Count of "+ args[1] +" :" + args[0]);
+        if(flag){
+            func.apply(context,[...args]);
+            flag = false;
+            setTimeout(() => {
+                flag = true;
+            },delay);
+        }
+    }
+}
+
+const betterExpensive = throttle(expensive,10000);
+
+
+let count = 0 ;
+document.getElementById("clickMe").onclick = function(){
+    count++;
+    betterExpensive(count,"ButtonMachine");
+}
