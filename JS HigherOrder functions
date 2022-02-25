@@ -33,6 +33,44 @@ Array.prototype.filter1 = function (logic){
         }
      
     }
+    
+    
+  
+ ------------------------------------------------------------
+ CALL, APPLY AND BIND POLYFILLS
+ 
+ const details = {
+    fname: 'Tejaswini',
+    lname: 'Kadam',
+    age : 29
+}
+
+let printDetails = function(city, state, country){
+    console.log("Name: "+ this.fname +" "+ this.lname + " Age:" + this.age + " Address: "+ city + ", " + state + " ," + country);
+}
+
+Function.prototype.bindi = function(...args){
+    let func = this;
+   return function(){
+    let params = args.slice(1);
+     func.apply(args[0],[...params]);
+   }
+}
+
+Function.prototype.call1 = function(...args){
+   let obj = args[0];
+   let params = args.slice(1);
+   obj.this = this;
+   obj.this(...params);
+}
+
+Function.prototype.apply1 = function(...args){
+   let obj = args[0];
+   let params = args.slice(1);
+   obj.this = this;
+   obj.this(params);
+}
+
     return resultArray;
 }
 console.log(arrayFil.filter1(odd));
