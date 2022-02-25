@@ -1,4 +1,4 @@
-//Reduce
+//Polyfill of Reduce
 
 const array = [1,2,3,4,5,6];
 const sum = function(acc,curr) { return acc = acc+curr};
@@ -17,7 +17,7 @@ Array.prototype.reduce1 = function(reducer,initailValue){
     }
 }
 ------------------------------------------------
-//Filter
+// Polyfill of Filter
 const arrayFil = [20,15,25,24,88,96,45,34];
 function odd(x){
   if(x % 2 !== 0){
@@ -37,7 +37,8 @@ Array.prototype.filter1 = function (logic){
 }
 console.log(arrayFil.filter1(odd));
 -------------------------------------------------------
-//Map
+
+//Polyfill of Map
 
 const array = [2,3,4,5];
 function square(x){
